@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="inner-section single-banner">
+    <div class="container">
+        <h2>Curriculum Tools</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <h4><i class="fas fa-arrow-up" style="color: aliceblue;"></i> 
+                <a href="{% url 'core:home' %}">Home</a></h4>
+            </li>
+        </ol>
+    </div>
+</section>
+<section class="inner-section profile-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="account-card mb-0">
+                    <div class="account-title">
+                        <h4>All Curriculum</h4>
+                        {% if request.user.is_staff %}
+                        <a href="#" class="btn btn-primary">Add Syllabus</a>
+                        {% endif %}
+                    </div>
+                    <div class="account-content">
+                        <div class="row">
+                            {% for curriculum in curriculums %}
+                            <div class="col-md-6 col-lg-6 alert fade show">
+                                <div class="payment-card payment" style="color: blanchedalmond;">
+                                    <a href="{% url 'core:curriculum-details' id=curriculum.id %}">
+                                        <h2>{{ curriculum.subject }}</h2>
+                                        <h5>Class: {{ curriculum.classroom }}</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bottom-paginate">
+                    <p class="page-info">Showing topic {{ curriculums.start_index }} to {{ curriculums.end_index }} of {{ curriculums.paginator.count }} Topics</p>
+                    <ul class="pagination">
+                        {% if curriculums.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ curriculums.previous_page_number }}"><i class="fas fa-long-arrow-alt-left"></i></a>
+                            </li>
+                        {% endif %}
+    
+                        {% for page_number in curriculums.paginator.page_range %}
+                            {% if page_number == curriculums.number %}
+                                <li class="page-item active"><span class="page-link">{{ page_number }}</span></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+    
+                        {% if curriculums.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ curriculums.next_page_number }}"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

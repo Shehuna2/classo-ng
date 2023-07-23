@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+{% include 'head.html' %}
+
+<body>
+    <div class="backdrop"></div><a class="backtop fas fa-arrow-up" href="#"></a>
+    <!-- {% include 'head.html' %} -->
+    {% include 'header.html' %}
+
+    {% block content %}
+    {% endblock content %}
+
+    
+    {% include 'scripts.html' %}
+</body>
+
+</html>

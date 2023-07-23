@@ -1,0 +1,58 @@
+<section class="inner-section single-banner">
+    <div class="container">
+        <h2>Timetable</h2>
+    </div>
+</section>
+
+<section class="inner-section timetable-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-scroll">
+                    <table class="table-list">
+                        <thead>
+                            <tr>
+                                <th scope="col">Class</th>
+                                <th scope="col">Monday</th>
+                                <th scope="col">Tuesday</th>
+                                <th scope="col">Wednesday</th>
+                                <th scope="col">Thursday</th>
+                                <th scope="col">Friday</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for _class in classes %}
+                            <tr>
+                                <td class="table-name">
+                                    <h6>{{ _class }}</h6>
+                                </td>
+                                <td class="table-period">
+                                    <h6>{{ get_course_name_for_timeslot(_class, 'Monday') }}</h6>
+                                </td>
+                                <td class="table-period">
+                                    <h6>{{ get_course_name_for_timeslot(_class, 'Tuesday') }}</h6>
+                                </td>
+                                <td class="table-period">
+                                    <h6>{{ get_course_name_for_timeslot(_class, 'Wednesday') }}</h6>
+                                </td>
+                                <td class="table-period">
+                                    <h6>{{ get_course_name_for_timeslot(_class, 'Thursday') }}</h6>
+                                </td>
+                                <td class="table-period">
+                                    <h6>{{ get_course_name_for_timeslot(_class, 'Friday') }}</h6>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center mt-5">
+                <a class="btn btn-inline" href="#"><i class="icofont-download"></i><span>Download Timetable</span></a>
+                <div class="back-home"><a href="index.html">Back to Home</a></div>
+            </div>
+        </div>
+    </div>
+</section>

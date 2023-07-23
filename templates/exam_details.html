@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+{% include 'head.html' %}
+
+<body>
+
+    <section class="inner-section single-banner">
+        <div class="container">
+            <h2>{{exam.classroom}} - {{exam.subject}}</h2>
+        </div>
+    </section>
+    <section class="inner-section invoice-part">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert-info">
+                        <p>Term: {{exam.term}}</p>
+                        <p>Duration: ...............................................................................</p>
+                        <p>School Name: .......................................................................</p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="account-card">
+                        <div class="account-title">
+                            <h4>Instruction: answer all questions in section A, and only 4 questions in section B</h4>
+                        </div>
+                        <div class="account-content">
+                            <ul class="invoice-details">
+                                <li>
+                                    <h6>{{exam.subject}}</h6>
+                                    <p>{{exam.body|safe}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center mt-5">
+                    <a class="btn btn-inline" href="?format=pdf"><i class="icofont-download"></i><span>download as PDF</span></a>
+                    <div class="back-home"><a href="{% url 'core:home' %}">Back to Home</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+create profile
+filter exams/topics from wide screen
+changing about.html images
+add syllabus from user site
+
+coming soon
+1 - timetable generator (priority)
+2 - blog
+2 - Teacher discussion room

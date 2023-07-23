@@ -1,0 +1,28 @@
+# Django-related files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Development server
+*.sqlite3
+
+# Static files
+# staticfiles/
+
+# Media files
+# media/
+
+# Environment variables file
+# .env
+
+# IDE-specific files (e.g., Visual Studio Code, PyCharm, etc.)
+.vscode/
+
+
+# Logs
+*.log
+
+# Other miscellaneous files and directories
+*.swp
+.DS_Store

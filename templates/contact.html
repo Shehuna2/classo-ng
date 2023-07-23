@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="inner-section single-banner" style="background: url(images/single-banner.jpg) no-repeat center;">
+        <div class="container">
+            <h2>contact us</h2>
+        </div>
+    </section>
+    <section class="inner-section contact-part">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card"><i class="icofont-location-pin"></i>
+                        <h4>head office</h4>
+                        <p>3rd floor Classo Plaza, Kano State, Nigeria</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card active"><i class="icofont-phone"></i>
+                        <h4>phone number</h4>
+                        <p><a href="#">+234-816-203-7790 <span></span></a><a href="#">+234-704-556-5392</a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="contact-card"><i class="icofont-email"></i>
+                        <h4>Support mail</h4>
+                        <p><a href="#">contact@classo.com</a><a href="#">info@classo.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="contact-form" method="post">
+                        {% csrf_token %}
+                        <h4>Drop Your Thoughts</h4>
+                        <div class="form-group">
+                            {{ form.name.label_tag }}
+                            <div class="form-input-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                                <i class="icofont-user-alt-3"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label_tag }}
+                            <div class="form-input-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email address">
+                                <i class="fas fa-at"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.message.label_tag }}
+                            <div class="form-input-group">
+                                <textarea type="text" class="form-control" id="message" name="message" placeholder="Enter your message"></textarea>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                        </div>
+                        <button type="submit" class="form-btn-group" name="contact"><span>send message</span></button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

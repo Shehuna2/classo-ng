@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="inner-section single-banner">
+    <div class="container">
+        <h2>Welcome to Classo!</h2>
+        <h4 style="color: aliceblue;">The teachers' tools</h4>
+    </div>
+</section>
+<section class="inner-section profile-part">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="account-card mb-0">
+                    <div class="account-title">
+                        <h4>All topics</h4>
+                        {% if request.user.is_staff %}
+                        <a href="{% url 'core:add-topic' %}" class="btn btn-primary">Add topic</a>
+                        {% endif %}
+                    </div>
+                    <div class="account-content">
+                        <div class="row">
+                            {% for topic in topics %}
+                            <div class="col-md-6 col-lg-6 alert fade show">
+                                <div class="payment-card payment active">
+                                    <a href="{% url 'core:topic-details' id=topic.id %}">
+                                        <h2>{{ topic.subject }}</h2>
+                                        <h5>Class: {{ topic.classroom }}</h5>
+                                        <h5>Topic: {{ topic.name }}</h5>
+                                    </a>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bottom-paginate">
+                    <p class="page-info">Showing topic {{ topics.start_index }} to {{ topics.end_index }} of {{ topics.paginator.count }} Topics</p>
+                    <ul class="pagination">
+                        {% if topics.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ topics.previous_page_number }}"><i class="fas fa-long-arrow-alt-left"></i></a>
+                            </li>
+                        {% endif %}
+    
+                        {% for page_number in topics.paginator.page_range %}
+                            {% if page_number == topics.number %}
+                                <li class="page-item active"><span class="page-link">{{ page_number }}</span></li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+    
+                        {% if topics.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ topics.next_page_number }}"><i class="fas fa-long-arrow-alt-right"></i></a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
