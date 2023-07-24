@@ -13,7 +13,7 @@
                     <div class="header-select"><i class="fas fa-book"></i><select class="select">
                             <option value="english" selected>Topics</option>
                             {% for section in sections %}
-                            <option value="section"><a href="{% url 'core:home-section' section.name %}">{{section.name}}</a></option>
+                            <a href="{% url 'core:home-section' section.name %}"><option value="section">{{section.name}}</option></a>
                             {% endfor %}
                         </select></div>
                     <div class="header-select"><i class="fas fa-pen"></i>
@@ -72,10 +72,10 @@
                     <a href="{% url 'core:exams-list' %}"><i class="fas fa-pen"></i><span><small>Exams</small></span></a>
                 </button>
                 <button class="header-widget">
-                    <a href="#"><i class="fas fa-table"></i></i><span><small>Timetable</small></span></a>
+                    <a href="{% url 'core:curriculum-list' %}"><i class="fas fa-list"></i></i><span><small>Curriculum</small></span></a>
                 </button>
                 <button class="header-widget">
-                    <a href="{% url 'core:curriculum-list' %}"><i class="fas fa-list"></i></i><span><small>Curriculum</small></span></a>
+                    <a href="#"><i class="fas fa-table"></i></i><span><small>Timetable</small></span></a>
                 </button>
             </div>
         </div>
@@ -138,7 +138,7 @@
             <li><a class="nav-link dropdown-link" href="#"><i class="icofont-bag-alt"></i>my account</a>
                 <ul class="dropdown-list">
                     <li><a href="#">profile</a></li>
-                    <li><a href="#">my downloads</a></li>
+                    <li><a href="{% url 'accounts:profile' %}">my downloads</a></li>
                     {% if request.user.is_authenticated %}
                     <li><a href="{% url 'accounts:logout' %}">logout</a></li>
                     {% else %}
