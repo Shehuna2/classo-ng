@@ -89,7 +89,9 @@ class Contact(models.Model):
 
 class Download(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    topic = models.ForeignKey('Topic', on_delete=models.CASCADE, null=True, default=None)
     exam = models.ForeignKey('Exam', on_delete=models.CASCADE)
+    curriculum = models.ForeignKey('Curriculum', on_delete=models.CASCADE, null=True, default=None)
     downloaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

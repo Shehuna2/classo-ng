@@ -34,11 +34,6 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-3">
-                                    <div class="form-group"><label class="form-label">name</label>
-                                        <input class="form-control" type="text" value="{{user.name}}">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-3">
                                     <div class="form-group"><label class="form-label">Email</label>
                                         <input class="form-control" type="email" value="{{user.email}}">
                                     </div>
@@ -50,19 +45,99 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-6">
                     <div class="account-card">
                         <div class="account-title">
-                            <h4>Recent Downloads</h4><button data-bs-toggle="modal" data-bs-target="#contact-add">add
-                                contact</button>
+                            <h4>Topics Downloaded</h4>
                         </div>
-                        {% if user_downloads %}
+                        {% if recent_downloads %}
                         <div class="account-content">
                             <div class="row">
                                 {% for download in recent_downloads %}
-                                <div class="col-md-6 col-lg-4 alert fade show">
+                                <div class="col-md-6 col-lg-6 alert fade show">
                                     <div class="profile-card contact active">
-                                        <h6>primary</h6>
+                                        <h6>{{download.downloaded_at}}</h6>
+                                        <p><a href="{{ download.get_absolute_url }}">{{ download.exam.subject }}</a></p>
+                                        <ul>
+                                            <li><button class="edit fa fa-arrow-down" title="Download again"
+                                                    data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
+                                            <li><button class="trash icofont-ui-delete" title="Remove This"
+                                                    data-bs-dismiss="alert"></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="account-card">
+                        <div class="account-title">
+                            <h4>Exams Downloaded</h4>>
+                        </div>
+                        {% if recent_downloads %}
+                        <div class="account-content">
+                            <div class="row">
+                                {% for exam in recent_downloads %}
+                                <div class="col-md-6 col-lg-6 alert fade show">
+                                    <div class="profile-card contact active">
+                                        <h6>{{exam.downloaded_at}}</h6>
+                                        <p><a href="{{ exam.get_absolute_url }}">{{ exam.exam.subject }}</a></p>
+                                        <ul>
+                                            <li><button class="edit fa fa-arrow-down" title="Download again"
+                                                    data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
+                                            <li><button class="trash icofont-ui-delete" title="Remove This"
+                                                    data-bs-dismiss="alert"></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="account-card">
+                        <div class="account-title">
+                            <h4>Syllabus Downloaded</h4>
+                        </div>
+                        {% if recent_downloads %}
+                        <div class="account-content">
+                            <div class="row">
+                                {% for syllabus in recent_downloads %}
+                                <div class="col-md-6 col-lg-6 alert fade show">
+                                    <div class="profile-card contact active">
+                                        <h6>{{syllabus.downloaded_at}}</h6>
+                                        <p><a href="{{ syllabus.get_absolute_url }}">{{ syllabus.exam.subject }}</a></p>
+                                        <ul>
+                                            <li><button class="edit fa fa-arrow-down" title="Download again"
+                                                    data-bs-toggle="modal" data-bs-target="#contact-edit"></button></li>
+                                            <li><button class="trash icofont-ui-delete" title="Remove This"
+                                                    data-bs-dismiss="alert"></button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="account-card">
+                        <div class="account-title">
+                            <h4>Timetable Downloaded</h4>
+                        </div>
+                        {% if recent_downloads %}
+                        <div class="account-content">
+                            <div class="row">
+                                {% for download in recent_downloads %}
+                                <div class="col-md-6 col-lg-6 alert fade show">
+                                    <div class="profile-card contact active">
+                                        <h6>{{download.downloaded_at}}</h6>
                                         <p><a href="{{ download.get_absolute_url }}">{{ download.exam.subject }}</a></p>
                                         <ul>
                                             <li><button class="edit fa fa-arrow-down" title="Download again"

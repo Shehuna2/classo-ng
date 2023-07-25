@@ -19,13 +19,5 @@ class Profile(models.Model):
         return f"{self.user.username}"
     
 
-class RecentPdfDownload(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_downloads')
-    pdf_file = models.FileField(upload_to='pdf_downloads/')
-    downloaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.user.username} - {self.pdf_file.name}"
-
 
 

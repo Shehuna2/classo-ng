@@ -1,4 +1,4 @@
-create profile
+create profile - done
 filter exams/topics from wide screen
 changing about.html images
 add syllabus from user site

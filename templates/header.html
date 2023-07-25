@@ -89,7 +89,8 @@
     </div>
     <div class="nav-content">
         <div class="nav-btn">
-            <a href="{% url 'accounts:login' %}" class="btn btn-inline"><i class="fa fa-unlock-alt"></i><span>Login</span></a>
+            <a href="{% url 'accounts:profile' %}" class="btn btn-inline">
+            <i class="fa fa-at"></i><span>{{request.user.username}}</span></a>
         </div>
         <div class="nav-select-group">
             <div class="nav-select"><i class="icofont-world"></i>
@@ -124,8 +125,8 @@
             </li>
             <li><a class="nav-link dropdown-link" href="#"><i class="fas fa-table"></i>Timetable</a>
                 <ul class="dropdown-list">
-                    <li><a href="product-tab.html">Generate Timetable</a></li>
-                    <li><a href="product-grid.html">Sample Timetable</a></li>
+                    <li><a href="#">Generate Timetable</a></li>
+                    <li><a href="#">Sample Timetable</a></li>
                 </ul>
             </li>
             <li><a class="nav-link dropdown-link" href="#"><i class="fas fa-list"></i>Curriculum</a>
