@@ -30,8 +30,8 @@
                             <div class="col-md-6 col-lg-6 alert fade show">
                                 <div class="payment-card payment" style="color: blanchedalmond;">
                                     <a href="{% url 'core:curriculum-details' id=curriculum.id %}">
-                                        <h2>{{ curriculum.subject }}</h2>
-                                        <h5>Class: {{ curriculum.classroom }}</h5>
+                                        
+                                        <h5>{{ curriculum.subject }} -  {{ curriculum.classroom }}</h5>
                                     </a>
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bottom-paginate">
-                    <p class="page-info">Showing topic {{ curriculums.start_index }} to {{ curriculums.end_index }} of {{ curriculums.paginator.count }} Topics</p>
+                    <p class="page-info">Showing syllabus {{ curriculums.start_index }} to {{ curriculums.end_index }} of {{ curriculums.paginator.count }} syllabus</p>
                     <ul class="pagination">
                         {% if curriculums.has_previous %}
                             <li class="page-item">
