@@ -10,7 +10,7 @@ class TopicForm(forms.ModelForm):
 
     class Meta:
         model = Topic
-        fields = ['subject', 'name', 'classroom', 'l_note', 'l_plan', 'tests', 'status']
+        fields = ['subject', 'name', 'classroom', 'weeks', 'l_note', 'l_plan', 'tests', 'status']
 
 class ExamForm(forms.ModelForm):
     body = forms.CharField(widget=CKEditorWidget())
