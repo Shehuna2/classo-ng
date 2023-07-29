@@ -25,9 +25,8 @@
                             <div class="col-md-6 col-lg-6 alert fade show">
                                 <div class="payment-card payment active">
                                     <a href="{% url 'core:topic-details' id=topic.id %}">
-                                       
-                                        <h5><strong>{{ topic.subject }}</strong> -  {{ topic.classroom }} - Week:{{ topic.weeks }}</h5>
-                                        <h5><strong>Topic:<strong> {{ topic.name }}</h5>
+                                        <h5><strong>Topic:</strong> {{ topic.name }}</h5>
+                                        <h5>{{ topic.subject }} - {{ topic.classroom }} - Week: {{ topic.weeks }}</h5>
                                     </a>
                                 </div>
                             </div>
