@@ -29,9 +29,7 @@
                                 <div class="col-md-6 col-lg-6 alert fade show">
                                     <div class="payment-card payment" style="color: rgb(99, 0, 0);">
                                         <a href="{% url 'core:exam-details' id=exam.id%}">
-                                        <h2>{{exam.subject}} </h2> 
-                                        <p><h5>Class: {{exam.classroom}}</h5></p>
-                                        <h5>Term: {{exam.term}}</h5>
+                                        <h5><strong>{{exam.subject}}</strong> - {{exam.classroom}} - {{exam.term}} term exam</h5> 
                                         </a>
                                     </div>
                                 </div>
