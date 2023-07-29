@@ -10,7 +10,7 @@ class ExamsAdmin(admin.ModelAdmin):
 
 @admin.register(Topic)
 class TopicsAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'name', 'classroom', 'status')
+    list_display = ('subject', 'name', 'classroom', 'weeks', 'status')
     list_filter = ('status', 'name', 'classroom')
     search_fields =('subject', 'name', 'classroom')
 
