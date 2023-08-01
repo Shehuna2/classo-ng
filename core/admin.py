@@ -4,13 +4,13 @@ from .models import Section, Classroom, Course, Topic, Exam, Curriculum, Contact
 
 @admin.register(Exam)
 class ExamsAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'term', 'terms', 'classroom', 'status')
+    list_display = ('subject', 'term', 'classroom', 'status')
     list_filter = ('status', 'classroom', 'term')
     search_fields =('subject', 'term', 'classroom')
 
 @admin.register(Topic)
 class TopicsAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'name', 'weeks','classroom', 'status')
+    list_display = ('subject', 'name',  'terms', 'weeks','classroom', 'status')
     list_filter = ('status', 'name', 'classroom')
     search_fields =('subject', 'name', 'classroom')
 
