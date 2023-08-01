@@ -35,6 +35,15 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="{{ t_form.terms.id_for_label }}">{{ t_form.terms.label_tag }}</label>
+                            <select class="form-control" id="{{ t_form.terms.id_for_label }}" name="{{ t_form.termshtml_name }}">
+                                {% for choice in t_form.terms.field.choices %}
+                                    <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="{{ t_form.l_note.id_for_label }}">{{ t_form.l_note.label_tag }}*</label>
                             {{ t_form.l_note|as_crispy_field }}
                         </div>
