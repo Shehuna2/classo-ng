@@ -4,7 +4,7 @@ from .models import Section, Classroom, Course, Topic, Exam, Curriculum, Contact
 
 @admin.register(Exam)
 class ExamsAdmin(admin.ModelAdmin):
-    list_display = ('subject', 'term', 'classroom', 'status')
+    list_display = ('subject', 'term', 'terms', 'classroom', 'status')
     list_filter = ('status', 'classroom', 'term')
     search_fields =('subject', 'term', 'classroom')
 
