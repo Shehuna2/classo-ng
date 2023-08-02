@@ -47,14 +47,6 @@
                             </li>
                         {% endif %}
     
-                        {% for page_number in topics.paginator.page_range %}
-                            {% if page_number == topics.number %}
-                                <li class="page-item active"><span class="page-link">{{ page_number }}</span></li>
-                            {% else %}
-                                <li class="page-item"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-
                         {% for i in topics.paginator.page_range %}
                             {% if i == topics.number %}
                                 <li class="page-item active"><span class="page-link">{{ i }}</span></li>
