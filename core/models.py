@@ -47,7 +47,7 @@ class Topic(models.Model):
     weeks = models.IntegerField(default=0)
     l_note = RichTextUploadingField()
     l_plan = RichTextUploadingField()
-    tests = RichTextUploadingField()
+    tests = RichTextUploadingField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
 
     def __str__(self):
