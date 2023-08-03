@@ -54,7 +54,7 @@ def home(request, section_name=None):
     section_topics = section_topics.order_by('id')
 
     # Pagination
-    topics_per_page = 10 
+    topics_per_page = 14 
 
     paginator = Paginator(section_topics, topics_per_page)
     page_number = request.GET.get('page')
@@ -116,7 +116,7 @@ def examList(request, section_name=None):
 
     section_exams = section_exams.order_by('id')
 
-    exams_per_page = 10 
+    exams_per_page = 14 
 
     paginator = Paginator(section_exams, exams_per_page)
     page_number = request.GET.get('page')
