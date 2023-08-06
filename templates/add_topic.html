@@ -17,9 +17,9 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
-                                                                {% if form.subject.errors %} 
+                                                                {% if t_form.subject.errors %} 
                                      <div class="form-error"> 
-                                         {% for error in form.subject.errors %} 
+                                         {% for error in t_form.subject.errors %} 
                                          <span style="color: red;">{{ error }}</span> 
                                          {% endfor %} 
                                      </div> 
@@ -33,9 +33,9 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
-                                                                {% if form.classroom.errors %} 
+                                                                {% if t_form.classroom.errors %} 
                                      <div class="form-error"> 
-                                         {% for error in form.classroom.errors %} 
+                                         {% for error in t_form.classroom.errors %} 
                                          <span style="color: red;">{{ error }}</span> 
                                          {% endfor %} 
                                      </div> 
@@ -49,9 +49,9 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
-                                                                {% if form.terms.errors %} 
+                                                                {% if t_form.terms.errors %} 
                                      <div class="form-error"> 
-                                         {% for error in form.terms.errors %} 
+                                         {% for error in t_form.terms.errors %} 
                                          <span style="color: red;">{{ error }}</span> 
                                          {% endfor %} 
                                      </div> 
