@@ -17,6 +17,13 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
+                                                                {% if form.subject.errors %} 
+                                     <div class="form-error"> 
+                                         {% for error in form.subject.errors %} 
+                                         <span style="color: red;">{{ error }}</span> 
+                                         {% endfor %} 
+                                     </div> 
+                                     {% endif %}
                         </div>
                         
                         <div class="form-group">
@@ -26,6 +33,13 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
+                                                                {% if form.classroom.errors %} 
+                                     <div class="form-error"> 
+                                         {% for error in form.classroom.errors %} 
+                                         <span style="color: red;">{{ error }}</span> 
+                                         {% endfor %} 
+                                     </div> 
+                                     {% endif %}
                         </div>
 
                         <div class="form-group">
@@ -35,6 +49,13 @@
                                     <option value="{{ choice.0 }}">{{ choice.1 }}</option>
                                 {% endfor %}
                             </select>
+                                                                {% if form.terms.errors %} 
+                                     <div class="form-error"> 
+                                         {% for error in form.terms.errors %} 
+                                         <span style="color: red;">{{ error }}</span> 
+                                         {% endfor %} 
+                                     </div> 
+                                     {% endif %}
                         </div>
 
                         <div class="form-group">
