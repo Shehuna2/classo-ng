@@ -6,7 +6,7 @@ from .models import Topic, Exam, Contact
 class TopicForm(forms.ModelForm):
     l_note = forms.CharField(widget=CKEditorWidget())
     l_plan = forms.CharField(widget=CKEditorWidget())
-    tests = forms.CharField(widget=CKEditorWidget())
+    
 
     class Meta:
         model = Topic
