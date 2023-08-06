@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.contrib import messages
 from django.db.models import Count, Q
 from django.core.paginator import Paginator
 from django.template.loader import get_template
@@ -17,10 +18,12 @@ def addTopic(request):
         if t_form.is_valid():
             t_form.save()
             return redirect('core:home')
+            messages.success(request, "Congrtas, topic created succesafully!")
     else:
+        messages.error(request, "Failed, check your submission and try again!")
         t_form = TopicForm()
 
-    return render(request, 'add_topic.html', {'t_form':t_form})
+    return render(request, 'add_topic.html', {'t_form':t_form, 'messages':messages})
 
 def addExam(request):
     if request.method == 'POST':
