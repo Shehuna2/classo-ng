@@ -40,14 +40,13 @@ class Course(models.Model):
 
 class Topic(models.Model):
     subject = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='topic_course')
-    name = models.CharField(max_length=200)
     classroom = models.ForeignKey(Classroom, on_delete=models.CASCADE, related_name='topics')
     terms = models.CharField(max_length=13, choices=TERMS, blank=True, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     weeks = models.IntegerField(default=0)
+    name = models.CharField(max_length=200)
     l_note = RichTextUploadingField()
     l_plan = RichTextUploadingField()
-    tests = RichTextUploadingField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
 
     def __str__(self):
