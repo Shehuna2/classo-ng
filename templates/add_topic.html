@@ -60,27 +60,28 @@
 
                         <div class="form-group">
                             <label for="{{ t_form.weeks.id_for_label }}">{{ t_form.weeks.label_tag }}</label>
-                            <input class="form-control" type="text" name="{{t_form.weeks.weeks}}">
-                                                                {% if t_form.weeks.errors %}  
-                                      <div class="form-error">  
-                                          {% for error in t_form.weeks.errors %}  
-                                          <span style="color: red;">{{ error }}</span>  
-                                          {% endfor %}  
-                                      </div>  
-                                      {% endif %}
+                            <input class="form-control" type="text" name="{{t_form.weeks.name}}">
+                            {% if t_form.weeks.errors %}  
+                                <div class="form-error">  
+                                    {% for error in t_form.weeks.errors %}  
+                                        <span style="color: red;">{{ error }}</span>  
+                                    {% endfor %}  
+                                </div>  
+                            {% endif %}
                         </div>
 
                         <div class="form-group">
                             <label for="{{ t_form.name.id_for_label }}">{{ t_form.name.label_tag }}</label>
-                            <input class="form-control" type="text" name="{{t_form.name.name}}">
+                            <input class="form-control" type="text" name="{{t_form.name.html_name}}">
 
-                                                                {% if t_form.name.errors %}  
-                                      <div class="form-error">  
-                                          {% for error in t_form.name.errors %}  
-                                          <span style="color: red;">{{ error }}</span>  
-                                          {% endfor %}  
-                                      </div>  
-                                      {% endif %}                        </div>
+                            {% if t_form.name.errors %}  
+                            <div class="form-error">  
+                                {% for error in t_form.name.errors %}  
+                                    <span style="color: red;">{{ error }}</span>  
+                                {% endfor %}  
+                            </div>  
+                            {% endif %}                        
+                        </div>
                         
                         <div class="form-group">
                             <label for="{{ t_form.l_note.id_for_label }}"></label>
