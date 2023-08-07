@@ -17,8 +17,8 @@ def addTopic(request):
         t_form = TopicForm(request.POST)
         if t_form.is_valid():
             t_form.save()
-            return redirect('core:home')
             messages.success(request, "Congrtas, topic created succesafully!")
+            return redirect('core:home')
     else:
         messages.error(request, "Failed, check your submission and try again!")
         t_form = TopicForm()
