@@ -25,9 +25,10 @@
                             <div class="col-md-6 col-lg-6 alert fade show">
                                 <div class="payment-card payment active">
                                     <a href="{% url 'core:topic-details' id=topic.id %}">
+                                        <h2>{{ topic.subject }}</h2>
+                                        <h5>Class: {{ topic.classroom }}</h5>
                                         <h5>Topic: {{ topic.name }}</h5>
-                                        <h5>{{ topic.subject }} - {{ topic.classroom }}</h5>
-                                      </a>
+                                    </a>
                                 </div>
                             </div>
                             {% endfor %}
