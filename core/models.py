@@ -47,7 +47,6 @@ class Topic(models.Model):
     name = models.CharField(max_length=200)
     l_note = RichTextUploadingField()
     l_plan = RichTextUploadingField()
-    tests = RichTextUploadingField(null=True, blank=True)
     status = models.CharField(max_length=10, choices=STATUS)
 
     def __str__(self):
