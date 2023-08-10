@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.contrib import messages
 from django.db.models import Count, Q
 from django.core.paginator import Paginator
 from django.template.loader import get_template
@@ -16,11 +17,13 @@ def addTopic(request):
         t_form = TopicForm(request.POST)
         if t_form.is_valid():
             t_form.save()
+            messages.success(request, "Congrtas, topic created succesafully!")
             return redirect('core:home')
     else:
+        messages.error(request, "Failed, check your submission and try again!")
         t_form = TopicForm()
 
-    return render(request, 'add_topic.html', {'t_form':t_form})
+    return render(request, 'add_topic.html', {'t_form':t_form, 'messages':messages})
 
 def addExam(request):
     if request.method == 'POST':
@@ -54,7 +57,7 @@ def home(request, section_name=None):
     section_topics = section_topics.order_by('id')
 
     # Pagination
-    topics_per_page = 10 
+    topics_per_page = 14 
 
     paginator = Paginator(section_topics, topics_per_page)
     page_number = request.GET.get('page')
@@ -116,7 +119,7 @@ def examList(request, section_name=None):
 
     section_exams = section_exams.order_by('id')
 
-    exams_per_page = 10 
+    exams_per_page = 14 
 
     paginator = Paginator(section_exams, exams_per_page)
     page_number = request.GET.get('page')

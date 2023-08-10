@@ -25,9 +25,9 @@
                             <div class="col-md-6 col-lg-6 alert fade show">
                                 <div class="payment-card payment active">
                                     <a href="{% url 'core:topic-details' id=topic.id %}">
-                                        <h2>{{ topic.subject }}</h2>
-                                        <h5>Class: {{ topic.classroom }}</h5>
-                                        <h5>Topic: {{ topic.name }}</h5>
+                                       
+                                        <h5><strong>{{ topic.subject }}</strong> -  {{ topic.classroom }}</h5>
+                                        <h5><strong>Topic:<strong> {{ topic.name }}</h5>
                                     </a>
                                 </div>
                             </div>
@@ -48,11 +48,15 @@
                             </li>
                         {% endif %}
     
-                        {% for page_number in topics.paginator.page_range %}
-                            {% if page_number == topics.number %}
-                                <li class="page-item active"><span class="page-link">{{ page_number }}</span></li>
-                            {% else %}
-                                <li class="page-item"><a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a></li>
+                        {% for i in topics.paginator.page_range %}
+                            {% if i == topics.number %}
+                                <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+                                {% elif i > topics.number|add:-1 and i < topics.number|add:2 %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% elif forloop.counter == topics.number|add:2 and i < topics.paginator.num_pages %}
+                                <li class="page-item disabled"><span class="page-link">...</span></li>
+                                {% elif i == topics.paginator.num_pages %}
+                                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
                             {% endif %}
                         {% endfor %}
     
